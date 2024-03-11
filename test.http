@@ -1,0 +1,28 @@
+
+
+###
+GET http://localhost:8090/object/bucket123123123/test10.txt
+Content-Type: application/json
+
+
+### create obj
+POST http://localhost:8090/object/bucket123123123/test10.txt
+Content-Type: application/json
+
+{
+  "data": "eyJrZXkiOiJydXN0IiwidmFsdWUiOiJoZWxsbyBydXN0In0=",
+  "content_type": "application/json",
+  "visibility": 1,
+  "sync": true
+}
+
+### put obj
+PUT http://localhost:8090/object/bucket123123123/test10.txt
+Content-Type: application/json
+
+{
+  "data": "eyJrZXkiOiJydXN0IiwidmFsdWUiOiJoZWxsbyBydXN0In0=",
+  "content_type": "application/json",
+  "visibility": 1,
+  "sync": true
+}
