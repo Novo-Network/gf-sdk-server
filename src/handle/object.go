@@ -17,8 +17,20 @@ func CreateObject(req module.PutObject, bucket, object, id string, cli client.IC
 
 	req.Check()
 
+	var v types2.VisibilityType
+	switch req.Visibility {
+	case 0:
+		v = types2.VISIBILITY_TYPE_UNSPECIFIED
+	case 1:
+		v = types2.VISIBILITY_TYPE_PUBLIC_READ
+	case 2:
+		v = types2.VISIBILITY_TYPE_PRIVATE
+	case 3:
+		v = types2.VISIBILITY_TYPE_INHERIT
+	}
+
 	cbOpt := types.CreateObjectOptions{
-		Visibility:          types2.VisibilityType(req.Visibility),
+		Visibility:          v,
 		TxOpts:              nil,
 		SecondarySPAccs:     nil,
 		ContentType:         req.ContentType,
